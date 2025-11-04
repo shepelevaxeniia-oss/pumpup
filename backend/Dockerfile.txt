@@ -1,0 +1,11 @@
+FROM golang:1.20-alpine AS build
+WORKDIR /src
+COPY . .
+RUN go mod download
+RUN go build -o /app/pumpup .
+
+FROM alpine:3.18
+COPY --from=build /app/pumpup /pumpup
+COPY .env.example /app/.env
+EXPOSE 8080
+ENTRYPOINT ["/pumpup"]
