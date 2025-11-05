@@ -1,4 +1,4 @@
-# PumpUp — локальный запуск (MVP skeleton)
+# PumpUp 
 
 Требования:
 - Docker & docker-compose
